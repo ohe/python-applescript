@@ -1,0 +1,20 @@
+It's strongly recommended to install Terminator using fink.
+If you don't have this option, please make sure you satisfy 
+python-applescript dependencies yourself:
+
+* Python 2.4+
+* Python headers and development librairies
+* Carbon headers and development librairies
+
+To install properly, run : 
+
+python setup.py build
+python setup.py install --record=install-manifest.txt
+
+For each command you can use the --help flag for an overview of
+available options.
+
+setup.py does not provide uninstallation, but all installed files 
+are recorded in install-manifest.txt (see above).
+
+Uninstallation process is done by manually removing each of these files.

@@ -1,0 +1,17 @@
+python-applescript 0.1
+by Olivier Hervieu <olivier.hervieu@gmail.com>.
+
+The goal of this project is to provide a very small library that is able to 
+launch applescript scripts.
+
+The module implements one method called 'launch_script'. This method takes
+one parameters : the script as a string.
+It returns the output of the executed script as a string.
+
+If the script contains errors, it raises an applescript.AppleScriptError 
+exception.
+
+This software is licensed by the MIT License (see LICENSE).
+
+Please report all bugs and ask your questions at <olivier.hervieu@gmail.com>.
+
