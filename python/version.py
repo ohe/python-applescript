@@ -19,8 +19,7 @@
 # THE SOFTWARE.
 
 __version_info__ = (0, 1, "alpha")
-__version__ = '-'.join(['.'.join([ str(v) for v in __version_info__[:3]])]
-                    + list(__version_info__[3:]))
+__version__ = '.'.join(str(v) for v in __version_info__)
 __url__ = 'http://github.com/ohe/python-applescript/'
 __author__ = 'Olivier Hervieu'
 __authoremail__ = 'olivier.hervieu@gmail.com'

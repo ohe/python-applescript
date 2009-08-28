@@ -23,9 +23,11 @@
 Installation script for the python-applescript module
 """
 
-from distutils import util
-from distutils.core import setup, Extension
-import os, shutil, sys, glob
+from ez_setup import use_setuptools
+use_setuptools()
+
+from setuptools import setup, Extension
+import sys, glob
 
 sys.path.append('python')
 import version as info
@@ -36,7 +38,7 @@ author = info.__author__
 author_email = info.__authoremail__
 
 long_description = '''
-python applescript is an extension to execute applescript commands on OS X.
+python-applescript is an extension to execute applescript commands on OS X.
 '''
 
 classifiers = """Development Status :: 3 - Alpha
@@ -73,6 +75,6 @@ setup(name='python-applescript',
       download_url='%s/downloads/tarball/python-applescript-%s.tar.gz' % (url, version),
       ext_modules = [module],
       license = 'MIT',
-      platforms = ['Mac OS X'],
+      platforms = ['MacOS X'],
       long_description = long_description,
       classifiers=classifiers)
