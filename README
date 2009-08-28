@@ -4,12 +4,15 @@ by Olivier Hervieu <olivier.hervieu@gmail.com>.
 The goal of this project is to provide a very small library that is able to 
 launch applescript scripts.
 
+This work is based on the perl module MAC::Applescript written by Dan Sugalski
+<dan@sidhe.org>, many thanks to him.
+
 The module implements one method called 'launch_script'. This method takes
 one parameters : the script as a string.
 It returns the output of the executed script as a string.
 
 If the script contains errors, it raises an applescript.AppleScriptError 
-exception.
+exception. See examples directory to see how it works.
 
 This software is licensed by the MIT License (see LICENSE).
 

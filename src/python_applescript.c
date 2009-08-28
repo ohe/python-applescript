@@ -23,14 +23,14 @@
 #include "python_applescript.h"
 
 #define ADD_METHOD(method_name)\
-	{#method_name,applescript_##method_name, METH_VARARGS, applescript_##method_name##_doc}
+    {#method_name,applescript_##method_name, METH_VARARGS, applescript_##method_name##_doc}
 
 static PyObject  * applescriptException = NULL;
 
 static PyMethodDef applescriptMethods[] = 
 {
-	ADD_METHOD(launch_script),
-	{NULL, NULL} /* Sentinel */
+    ADD_METHOD(launch_script),
+    {NULL, NULL} /* Sentinel */
 };
 
 
@@ -40,21 +40,21 @@ char applescript_launch_script_doc[] = "launch_script(script)";
 PyObject * 
 applescript_launch_script(PyObject *obj, PyObject *args) {
 
-	ComponentInstance theComponent = NULL;
-	AEDesc scriptTextDesc;
-	AEDesc resultData;
-	OSStatus err = noErr;
-	OSAID scriptID;
-	OSAID resultID;
+    ComponentInstance theComponent = NULL;
+    AEDesc scriptTextDesc;
+    AEDesc resultData;
+    OSStatus err = noErr;
+    OSAID scriptID;
+    OSAID resultID;
 
-	int isError      = 0;
-	char *text       = NULL;
-	int returnSize   = 0;
+    int isError      = 0;
+    char *text       = NULL;
+    int returnSize   = 0;
 
-	PyObject *buffer = NULL;
+    PyObject *buffer = NULL;
 
-	/* Grep python args */
-	if (PyArg_ParseTuple(args, "s", &text)){
+    /* Grep python args */
+    if (PyArg_ParseTuple(args, "s", &text)){
 
         /* String convertion */
         err = AECreateDesc(typeUTF8Text, text, strlen(text), & scriptTextDesc);
@@ -86,7 +86,7 @@ applescript_launch_script(PyObject *obj, PyObject *args) {
             AEDisposeDesc(&resultData);
             if (isError) {
                 PyErr_SetString(applescriptException, PyString_AsString(buffer));
-                Py_XDECREF(buffer);
+                buffer = NULL;
             }
         }
         else {
@@ -105,20 +105,20 @@ applescript_launch_script(PyObject *obj, PyObject *args) {
 */
 void initapplescript(void) {
 
-	PyObject *dict = NULL;
-	PyObject *mod  = NULL;
+    PyObject *dict = NULL;
+    PyObject *mod  = NULL;
 
-	applescriptException = PyErr_NewException("applescript.Error", NULL, NULL);
+    applescriptException = PyErr_NewException("applescript.Error", NULL, NULL);
 
-	mod = Py_InitModule3(
-			"applescript",      /* name of the module       */
-			applescriptMethods, /* name of the method table */
-			"Python extension to execute applescript commands on OS X"
-			);
+    mod = Py_InitModule3(
+            "applescript",      /* name of the module       */
+            applescriptMethods, /* name of the method table */
+            "Python extension to execute applescript commands on OS X"
+        );
 
     dict = PyModule_GetDict(mod);
     PyDict_SetItemString(dict,"AppleScriptError",applescriptException);
 
-	return;
+    return;
 }
 /* }}} */
