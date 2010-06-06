@@ -44,7 +44,7 @@ applescript_launch_script(PyObject *obj, PyObject *args) {
     AEDesc scriptTextDesc;
     AEDesc resultData;
     OSStatus err = noErr;
-    OSAID scriptID;
+    OSAID scriptID = kOSANullScript;
     OSAID resultID;
 
     int isError      = 0;
