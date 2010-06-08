@@ -1,4 +1,4 @@
-# Copyright (c) 2009 Olivier Hervieu <olivier.hervieu@gmail.com>
+# Copyright (c) 2010 Olivier Hervieu <olivier.hervieu@gmail.com>
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,7 +20,7 @@
 
 
 """
-Installation script for the python-applescript module
+Installation script for the python-applescript module.
 """
 
 from ez_setup import use_setuptools
@@ -34,6 +34,7 @@ import version as info
 
 version = info.__version__
 url = info.__url__
+dl_url = info.__dl_url__
 author = info.__author__
 author_email = info.__authoremail__
 
@@ -72,7 +73,7 @@ setup(name='python-applescript',
       author=author,
       author_email=author_email,
       url=url,
-      download_url='%s/downloads/tarball/python-applescript-%s.tar.gz' % (url, version),
+      download_url='%s/python-applescript-%s.tar.gz' % (dl_url, version),
       ext_modules = [module],
       license = 'MIT',
       platforms = ['MacOS X'],
