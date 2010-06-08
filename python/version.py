@@ -18,7 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-__version_info__ = (0, 1, "alpha")
+__version_info__ = (0, 1)
 __version__ = '.'.join(str(v) for v in __version_info__)
 __url__ = 'http://github.com/ohe/python-applescript/'
 __dl_url__ = 'http://github.com/downloads/ohe/python-applescript'
